@@ -1,0 +1,10 @@
+{
+  "extends": "../.nuxt/tsconfig.server.json",
+  "compilerOptions": {
+    "types": [
+      "@types/node",
+      "@nuxt/vue-app",
+      "nuxt-leaflet"
+    ]
+  }
+}
