@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        main: 'black',
+        main: '#00cdbd',
         secondary: '#f0f0f0',
         grey: '#585c56',
       },

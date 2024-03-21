@@ -6,8 +6,19 @@ import type { Establishments } from '../../types/establishment.ts'
 export default class EatsController {
   async getRestaurantsByLocation({ request, response }: HttpContext) {
     const location = request.input('location')
-    const price = request.input('price', '')
     const apiKey = env.get('YELP_API_KEY')
+
+    let params: any = {
+      location,
+      term: 'food',
+      sort_by: 'best_match',
+      limit: '20',
+    }
+
+    const price = request.input('price', null)
+    if (price) {
+      params.price = price
+    }
 
     try {
       const yelpResponse = await Axios.get<Establishments>(
@@ -16,13 +27,7 @@ export default class EatsController {
           headers: {
             Authorization: `Bearer ${apiKey}`,
           },
-          params: {
-            location,
-            price,
-            term: 'food',
-            sort_by: 'best_match',
-            limit: '20',
-          },
+          params: params,
         }
       )
 

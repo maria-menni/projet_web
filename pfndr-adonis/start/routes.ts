@@ -10,6 +10,7 @@
 import router from '@adonisjs/core/services/router'
 const EatsController = () => import('#controllers/eats_controller')
 const DrinksController = () => import('#controllers/drinks_controller')
+const EventsController = () => import('#controllers/events_controller')
 
 router.get('/', async () => {
   return {
@@ -19,9 +20,9 @@ router.get('/', async () => {
 
 router
   .group(() => {
-    router.get('/enjoy/:location', ({ params }) => {
-      return `Fetching events and activities for location: ${params.location}`
-    })
+
+    router.get('/enjoy/:location', [EventsController, 'getEventsByLocation'])
+
 
     router.get('/sleep/:location', ({ params }) => {
       return `Fetching accommodations for location: ${params.location}`

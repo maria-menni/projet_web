@@ -2,14 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply text-black bg-white
+}
 .card {
-  @apply bg-white rounded-md shadow-md
+  @apply bg-white rounded-md shadow-md cursor-pointer
 }
 
 .card .content {
-  @apply p-4;
+  @apply p-4
 }
 
 section {
-  @apply px-4;
+  @apply px-4
+}
+
+input {
+  @apply border rounded-md p-2
+}
+
+.button {
+  @apply border rounded-md p-2 hover:border-grey
 }

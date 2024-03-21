@@ -5,8 +5,8 @@ export default defineEventHandler(async (event) => {
   const location = query.location;
   const price = query.price;
   const config = useRuntimeConfig();
-  const drinks: Establishments[] = await $fetch(`${config.API_BASE_URL}drink/${location}`, {
-    params: { location, price }
+  const events: Establishments[] = await $fetch(`${config.API_BASE_URL}enjoy/${location}`, {
+    params: { location }
   });
-  return drinks;
+  return events;
 })

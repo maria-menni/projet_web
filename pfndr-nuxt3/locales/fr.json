@@ -3,5 +3,7 @@
   "closed": "fermé",
   "good": "Bien",
   "fine": "Très bien",
-  "perfect": "Excellent"
+  "perfect": "Excellent",
+  "account": "Votre compte",
+  "localisation_placeholder": "Votre adresse, pays, ville.."
 }

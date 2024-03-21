@@ -4,7 +4,8 @@ export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const location = query.location;
   const price = query.price;
-  const eats: Establishments[] = await $fetch(`http://localhost:3333/api/eat/${location}`, {
+  const config = useRuntimeConfig();
+  const eats: Establishments[] = await $fetch(`${config.API_BASE_URL}eat/${location}`, {
     params: { location, price }
   });
   return eats;
