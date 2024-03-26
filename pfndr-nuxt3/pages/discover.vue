@@ -41,8 +41,7 @@ import type { Establishments, Establishment, Region } from '../../pfndr-adonis/t
 import { getRatingClass, getRatingText } from '../utils/displayStar';
 
 const location = ref<string>('Lille')
-const price = ref<string>('2')
-
+const price = ref<string>('1')
 const establishments = ref<{ businesses: Establishment[], region: Region }>({
   businesses: [],
   region: { center: { latitude: 0, longitude: 0 } }
@@ -52,6 +51,7 @@ const establishments = ref<{ businesses: Establishment[], region: Region }>({
 const { data: eats } = await useFetch<Establishments>('/api/eat', {
   query: { location, price }
 })
+
 const { data: drinks } = await useFetch<Establishments>('/api/drink', {
   query: { location, price }
 })
